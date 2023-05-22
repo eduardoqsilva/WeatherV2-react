@@ -2,6 +2,17 @@ export const ThemeDefault = {
   fonts: {
     default: 'Roboto, sans-serif',
   },
+  font_size: {
+    XL: '1.5rem',
+    L: '1.25rem',
+    M: '1rem',
+    S: '0.875rem',
+    XS: '0.75rem',
+  },
+  border: {
+    border_radius: '8px',
+    border_width: '2px',
+  },
   colors: {
     green1: '#0E2D40',
     green2: '#1F6565',
