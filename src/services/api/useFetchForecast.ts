@@ -1,25 +1,25 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { WeatherData } from "./WeatherData.ts"
+import { WeatherDataForecast } from "./WeatherData"
 
 /// <reference path="./weatherData.d.ts" />
 
 
 const KEY = import.meta.env.VITE_APP_API_KEY
 
-export function useFetching(location?:string) {
+export function useFetchForecast(location?: string) {
 
   const [isFetching, setIsFetching] = useState(false)
-  const [data, setData] = useState<WeatherData>()
-  
+  const [data, setData] = useState<WeatherDataForecast>()
+
   const locate = location ? location : 'são paulo'
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${locate}&units=metric&lang=pt&cnt=7&appid=${KEY}`
+  const URL = `https://api.openweathermap.org/data/2.5/forecast?q=${locate}&units=metric&lang=pt&appid=${KEY}`
 
   useEffect(() => {
     setIsFetching(true)
-    axios<WeatherData>(URL)
+    axios<WeatherDataForecast>(URL)
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data, URL)
         setData(res.data)
       })
       .catch((err) => {
@@ -28,8 +28,8 @@ export function useFetching(location?:string) {
       .finally(() => {
         setIsFetching(false)
       })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location])
 
-  return {data, isFetching}
+  return { data, isFetching }
 }
