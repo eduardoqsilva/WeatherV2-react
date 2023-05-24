@@ -13,8 +13,27 @@ export const GlobalStyled = createGlobalStyle`
   }
 
   body {
+    min-height: 100vh;
+    width: 100vw;
+    /* padding: 1.5rem; */
+
+    overflow-x: hidden;
+
     font-family: ${fonts.default};
-    background-color: ${colors.gray1};
-    color: ${colors.white}
+    color: ${colors.white};
+
+    & #root {
+      background: linear-gradient(180deg, ${colors.green1} 0%, ${colors.green2} 100%);
+
+      width: 100%;
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8rem;
+    }
   }
+
 `
