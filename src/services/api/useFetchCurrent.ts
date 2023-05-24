@@ -19,7 +19,7 @@ export function useFetchCurrent(location?: string) {
     setIsFetching(true)
     axios<WeatherDataCurrent>(URL)
       .then((res) => {
-        console.log(res.data, URL)
+        // console.log(res.data, URL)
         setData(res.data)
       })
       .catch((err) => {
