@@ -1,15 +1,26 @@
-import { useFetchCurrent } from "../../services/api/useFetchCurrent"
-import { IconSelect } from "../../components/IconSelect";
+import { useState } from "react";
+import { CurrentCard } from "../../components/CurrentCard";
+import { Search } from "../../components/Search";
+import { useFetchCurrent } from "../../services/api/useFetchCurrent";
 
 export function Home() {
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // const {data, isFetching} = useFetchCurrent()
+  const [text, setText] = useState('')
+  const { data, isFetching } = useFetchCurrent(text)
 
   return (
-    <div>
-      {/* <h1>Fetching: {isFetching.toString()}</h1>
-      <IconSelect iconName={data?.weather[0].icon}/> */}
-    </div>
+    <>
+      <Search setValue={setText} />
+      {isFetching ? '' :
+        <CurrentCard
+          city={`${data?.name} (${data?.sys.country})`}
+          desc={data?.weather[0].description}
+          temp={data?.main.temp}
+          umd={data?.main.humidity}
+          wind={data?.wind.speed}
+          icon={data ?  data?.weather[0].icon : '01d'}
+        />
+      }
+    </>
   )
 }
