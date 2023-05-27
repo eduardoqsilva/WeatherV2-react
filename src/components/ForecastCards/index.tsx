@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { ContainerCard } from "./forecast.styled";
+import { CardWrapper, CardsContainer, ContainerCard } from "./forecast.styled";
 import { GetDatesArray } from "../../utils/dateGenerate";
 import { useFetchForecast } from "../../services/api/useFetchForecast";
+import { IconSelect } from "../IconSelect";
+import { list } from "./forecastType";
+import { Calendar, CalendarCheck, CalendarPlus, CalendarX } from "@phosphor-icons/react";
 
 const dates = GetDatesArray()
 
@@ -11,8 +14,9 @@ interface ForecastCardsType {
 
 export function ForecastCards({ text }: ForecastCardsType) {
 
-  const [fData, setFData] = useState<object[]>() 
-  const { data, isFetching } = useFetchForecast()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [fData, setFData] = useState<list[] | any>() 
+  const { data, isFetching } = useFetchForecast(text)
 
   useEffect(() => {
     if(!isFetching && data) {
@@ -21,6 +25,7 @@ export function ForecastCards({ text }: ForecastCardsType) {
       })
       setFData(filteredData)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFetching])
 
   useEffect(() => {
@@ -28,8 +33,24 @@ export function ForecastCards({ text }: ForecastCardsType) {
   }, [fData])
 
   return (
-    <ContainerCard>
-      <h2>hello</h2>
-    </ContainerCard>
+    <>
+      <ContainerCard>
+        <div className="legend">
+          Previsão Semanal 
+          <CalendarCheck size={25} />
+        </div>
+        <CardsContainer>
+          {fData ? fData.map((item:list, i:number) => {
+            return (
+                <CardWrapper>
+                  <IconSelect iconName={item.weather[0].icon ? item?.weather[0].icon : '01d'} />
+                  <span>{dates[i].day}</span>
+                  <h2>{Math.round(item.main.temp)}°</h2>
+                </CardWrapper>
+            )
+          }) : ''}
+        </CardsContainer>
+      </ContainerCard>
+    </>
   )
 }
