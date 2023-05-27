@@ -4,7 +4,7 @@ import { GetDatesArray } from "../../utils/dateGenerate";
 import { useFetchForecast } from "../../services/api/useFetchForecast";
 import { IconSelect } from "../IconSelect";
 import { list } from "./forecastType";
-import { Calendar, CalendarCheck, CalendarPlus, CalendarX } from "@phosphor-icons/react";
+import { CalendarCheck} from "@phosphor-icons/react";
 
 const dates = GetDatesArray()
 
