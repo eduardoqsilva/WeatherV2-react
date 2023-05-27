@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CurrentCard } from "../../components/CurrentCard";
 import { Search } from "../../components/Search";
 import { useFetchCurrent } from "../../services/api/useFetchCurrent";
+import { ForecastCards } from "../../components/ForecastCards";
 
 export function Home() {
 
@@ -21,6 +22,7 @@ export function Home() {
           icon={data ?  data?.weather[0].icon : '01d'}
         />
       }
+      <ForecastCards text={text}/>
     </>
   )
 }
