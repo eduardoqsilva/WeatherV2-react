@@ -19,7 +19,6 @@ export function useFetchForecast(location?: string) {
     setIsFetching(true)
     axios<WeatherDataForecast>(URL)
       .then((res) => {
-        console.log(res.data, URL)
         setData(res.data)
       })
       .catch((err) => {
