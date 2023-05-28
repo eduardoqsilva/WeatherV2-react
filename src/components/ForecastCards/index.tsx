@@ -5,6 +5,7 @@ import { useFetchForecast } from "../../services/api/useFetchForecast";
 import { IconSelect } from "../IconSelect";
 import { list } from "./forecastType";
 import { CalendarCheck} from "@phosphor-icons/react";
+import { Loading } from "../Loading";
 
 const dates = GetDatesArray()
 
@@ -28,10 +29,6 @@ export function ForecastCards({ text }: ForecastCardsType) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFetching])
 
-  useEffect(() => {
-    console.log(fData)
-  }, [fData])
-
   return (
     <>
       <ContainerCard>
@@ -42,13 +39,13 @@ export function ForecastCards({ text }: ForecastCardsType) {
         <CardsContainer>
           {fData ? fData.map((item:list, i:number) => {
             return (
-                <CardWrapper>
+                <CardWrapper key={i + 'card'}>
                   <IconSelect iconName={item.weather[0].icon ? item?.weather[0].icon : '01d'} />
                   <span>{dates[i].day}</span>
                   <h2>{Math.round(item.main.temp)}°</h2>
                 </CardWrapper>
             )
-          }) : ''}
+          }) : <Loading />}
         </CardsContainer>
       </ContainerCard>
     </>

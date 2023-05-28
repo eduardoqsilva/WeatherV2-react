@@ -5,11 +5,13 @@ export const ContainerCard = styled.div`
   max-width: 700px;
 
   display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-template-rows: 20px auto;
+  grid-template-columns: 100%;
+  grid-template-rows: 20px 200px;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+
+
   /* background-color: beige; */
   
   & .legend {
@@ -24,6 +26,7 @@ export const ContainerCard = styled.div`
     justify-content: left;
     max-width: 100%;
     padding: 0 0 0 1rem;
+    grid-template-rows: 20px 158px;
   }
 `
 
@@ -47,11 +50,13 @@ export const CardWrapper = styled.div`
 `
 
 export const CardsContainer = styled.div`
+  min-width: 100%;
+  min-height: 100%;
+  
   display: flex;
   gap: 1rem;
   padding: 0 1rem 0 0;
-
-  grid-column: 1 / 6;
+  align-items: center;
 
   @media (max-width: 850px) {
     overflow-x: scroll;
