@@ -30,10 +30,7 @@ export const GlobalStyled = createGlobalStyle`
 
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 4rem;
-      padding: 1.5rem 0 1.5rem 0;
+      padding: 2rem 0 1.5rem 0;
 
       overflow-x: hidden;
     }
