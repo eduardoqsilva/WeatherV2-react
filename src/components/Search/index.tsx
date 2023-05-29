@@ -10,9 +10,9 @@ export function Search({ setValue }: SearchType) {
 
   return (
     <InputWrapper>
-      <input type="text" 
+      <input type="text"
         onKeyDown={(e) => {
-          if(e.key === 'Enter') {
+          if (e.key === 'Enter') {
             setValue(e.currentTarget.value)
             e.currentTarget.value = ''
           }
