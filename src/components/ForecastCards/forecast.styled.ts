@@ -11,6 +11,7 @@ export const ContainerCard = styled.div`
   align-items: center;
   justify-content: center;
   row-gap: 1rem;
+  margin-right: -1rem;
 
 
   /* background-color: beige; */
