@@ -10,7 +10,7 @@ export const ThemeDefault = {
     XS: '0.75rem',
   },
   border: {
-    border_radius: '8px',
+    border_radius: '16px',
     border_width: '2px',
   },
   colors: {

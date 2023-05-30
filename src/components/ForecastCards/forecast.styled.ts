@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ThemeDefault } from "../../styles/themes/default";
 
 export const ContainerCard = styled.div`
   width: 100%;
@@ -15,7 +16,7 @@ export const ContainerCard = styled.div`
   /* background-color: beige; */
   
   & .legend {
-    font-size: 1rem;
+    font-size: ${ThemeDefault.font_size.M};
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -42,7 +43,7 @@ export const CardWrapper = styled.div`
   gap: 0.5rem;
 
   padding: 1rem;
-  border-radius: 15px;
+  border-radius: ${ThemeDefault.border.border_radius};
 
   @media (max-width: 500px) {
     width: 100px;

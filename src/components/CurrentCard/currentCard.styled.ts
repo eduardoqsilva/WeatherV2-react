@@ -35,7 +35,7 @@ export const ContainerCurrentCard = styled.div`
       }
     }
     & span {
-      font-size: 1rem;
+      font-size: ${font_size.M};
     }
   }
 

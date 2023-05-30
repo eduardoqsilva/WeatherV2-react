@@ -23,7 +23,7 @@ export const InputWrapper = styled.div`
     outline: none;
     background: transparent;
 
-    font-size: 1rem;
+    font-size: ${ThemeDefault.font_size.M};
     font-weight: 600;
     color: ${colors.white};
 
