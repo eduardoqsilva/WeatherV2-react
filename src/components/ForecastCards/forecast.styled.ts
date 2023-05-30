@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const ContainerCard = styled.div`
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
 
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 20px 200px;
+  grid-template-rows: 20px 210px;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  row-gap: 1rem;
 
 
   /* background-color: beige; */
